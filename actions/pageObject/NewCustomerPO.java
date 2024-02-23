@@ -49,4 +49,14 @@ public class NewCustomerPO extends BasePage {
 		sendkeyToElement(driver, NewCustomerPageUI.ADDRESS_BOX, textValue);
 	}
 
+	public Object getSuccessMessage() {
+		waitForElementVisible(driver, NewCustomerPageUI.SUCCESS_MESSAGE);
+		return getElementText(driver, NewCustomerPageUI.SUCCESS_MESSAGE);
+	}
+
+	public Object getInfoMationSuccess(String textValue) {
+		waitForElementVisible(driver, NewCustomerPageUI.INFOMATION_SUCCES, textValue);
+		return getElementText(driver, NewCustomerPageUI.INFOMATION_SUCCES, textValue);
+	}
+
 }

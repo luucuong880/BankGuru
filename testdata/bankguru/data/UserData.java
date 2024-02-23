@@ -1,4 +1,4 @@
-package com.livguru.data;
+package bankguru.data;
 
 public class UserData {
 	public static class Register {
