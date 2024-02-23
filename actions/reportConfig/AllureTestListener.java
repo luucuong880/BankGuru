@@ -7,8 +7,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import bankguru.BaseTest;
 import io.qameta.allure.Attachment;
-import liveguru.frontend.BaseTest;
 
 public class AllureTestListener implements ITestListener {
 

@@ -13,8 +13,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import bankguru.GlobalConstants;
 import factoryBrowser.BrowserList;
-import liveguru.frontend.GlobalConstants;
 
 public class GridFactory {
 	private WebDriver driver;
