@@ -13,14 +13,6 @@ public class NewCustomerPO extends BasePage {
 		this.driver = driver;
 	}
 
-	public void clickToFieldbox(String nameValue) {
-		waitForElementClickable(driver, NewCustomerPageUI.FIELD_BOX, nameValue);
-		clickToElement(driver, NewCustomerPageUI.FIELD_BOX, nameValue);
-		waitForElementClickable(driver, NewCustomerPageUI.BODY);
-		clickToElement(driver, NewCustomerPageUI.BODY);
-		sleepInSecond(2);
-	}
-
 	public Object getErrorMessage(String idValue) {
 		waitForElementVisible(driver, NewCustomerPageUI.ERROR_MESSAGE, idValue);
 		return getElementText(driver, NewCustomerPageUI.ERROR_MESSAGE, idValue);
@@ -29,11 +21,6 @@ public class NewCustomerPO extends BasePage {
 	public NewCustomerPO reloadPage() {
 		refreshCurrentPage(driver);
 		return PageGeneratorManager.getNewCustomerPage(driver);
-	}
-
-	public void inputToTextField(String nameValue, String textValue) {
-		waitForElementVisible(driver, NewCustomerPageUI.FIELD_BOX, nameValue);
-		sendkeyToElement(driver, NewCustomerPageUI.FIELD_BOX, textValue, nameValue);
 	}
 
 	public void clickToAddressbox() {

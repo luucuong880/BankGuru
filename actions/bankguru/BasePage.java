@@ -137,7 +137,7 @@ public class BasePage extends FileDownload {
 		} else if (locatorType.startsWith("name=") || locatorType.startsWith("NAME=") || locatorType.startsWith("Name=")) {
 			by = By.name(locatorType.substring(5));
 		} else if (locatorType.startsWith("css=") || locatorType.startsWith("CSS=") || locatorType.startsWith("Css=")) {
-			by = By.className(locatorType.substring(4));
+			by = By.cssSelector(locatorType.substring(4));
 		} else if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
 			by = By.xpath(locatorType.substring(6));
 		} else {
@@ -817,6 +817,35 @@ public class BasePage extends FileDownload {
 		default:
 			throw new RuntimeException("Invalid page Links at Header are.");
 		}
+
+	}
+
+	public void clickToFieldbox(WebDriver driver, String nameValue) {
+		waitForElementClickable(driver, BasePageUI.FIELD_BOX, nameValue);
+		clickToElement(driver, BasePageUI.FIELD_BOX, nameValue);
+		waitForElementClickable(driver, BasePageUI.BODY);
+		clickToElement(driver, BasePageUI.BODY);
+		sleepInSecond(2);
+	}
+
+	public void inputToTextField(WebDriver driver, String nameValue, String textValue) {
+		waitForElementVisible(driver, BasePageUI.FIELD_BOX, nameValue);
+		sendkeyToElement(driver, BasePageUI.FIELD_BOX, textValue, nameValue);
+	}
+
+	public void checkToGenderRadioBox(WebDriver driver, String nameValue) {
+		waitForElementVisible(driver, BasePageUI.FIELD_BOX, nameValue);
+		checkToDefaultCheckboxOrRadio(driver, BasePageUI.FIELD_BOX, nameValue);
+	}
+
+	public void clickToSubmitButton(WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.SUBMIT_BUTTON);
+		clickToElement(driver, BasePageUI.SUBMIT_BUTTON);
+	}
+
+	public void clickToButtonSkip(WebDriver driver) {
+		waitForElementVisible(driver, BasePageUI.DISMISS_BUTTON);
+		clickToElement(driver, BasePageUI.DISMISS_BUTTON);
 	}
 
 }

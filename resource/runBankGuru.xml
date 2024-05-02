@@ -16,7 +16,7 @@
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="bankguru.Customer" />
+			<class name="bankguru.EditCustomer" />
 		</classes>
 	</test>
 	

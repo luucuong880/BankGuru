@@ -11,6 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import bankguru.data.UserDataMapper;
+import pageObject.EditCustomerPO;
 import pageObject.HomePageObject;
 import pageObject.LoginPageObject;
 import pageObject.ManagerPageObject;
@@ -33,15 +34,18 @@ public class EditCustomer extends BaseTest {
 		userData = UserDataMapper.getUserData();
 		emailAddress = userData.getEmailAddress() + "@fakemail.com";
 
-		homePage.inputToEmailToGetAccessDetails("abcx@gmail.com");
+		homePage.inputToEmailToGetAccessDetails("xyzabc@gmail.com");
 		loginPage = homePage.openLoginPage();
 		managerPage = loginPage.loginToCustomerPage(userData.getLoginUsername(), userData.getLoginPassword());
 		verifyEquals(managerPage.getHeadingTitle(), "Welcome To Manager's Page of Guru99 Bank");
+
+		editCustomerPage = (EditCustomerPO) managerPage.openPageAtSubMenu(driver, "Edit Customer");
+
 	}
 
 	@Test
-	public void Edit_Customer() {
-
+	public void Edit_Customer_Case_01() {
+		editCustomerPage.clickToFieldbox(driver, "cusid");
 	}
 
 	public int generateFakeNumber() {
@@ -64,5 +68,5 @@ public class EditCustomer extends BaseTest {
 	LoginPageObject loginPage;
 	ManagerPageObject managerPage;
 	NewCustomerPO newCustomerPage;
-
+	EditCustomerPO editCustomerPage;
 }
